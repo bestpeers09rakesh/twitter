@@ -1,0 +1,20 @@
+<div class="container justify-content-center" style="width: 30rem;">
+  <div class="card shadow mt-5" style="background-color:#e1f5fe;">
+    <div class="card-header bg-white shadow">
+      <h4 class="d-flex justify-content-center"> Login </h4>
+    </div>
+    
+    <div class="card-body">
+      <%= render "shared/flash" %>
+      <%= form_with model: @user, url: login_session_index_path, local:true do |form|%>
+        <%= form.label :email %>
+        <%= form.text_field :email, class:"form-control shadow mb-3", placeholder:"please enter email" %>
+        
+        <%= form.label :password %>
+        <%= form.password_field :password, class:"form-control shadow mb-3", placeholder:"enter password" %>
+        
+        <%= form.submit "Get's Start", class:"shadow" %>
+      <%end%>
+    </div>
+  </div>
+</div>
