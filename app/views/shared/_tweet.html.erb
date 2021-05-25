@@ -1,0 +1,29 @@
+<div class="card mt-4 mb-2">
+  <div class="card-header">
+    <div class="d-flex">
+      <p class="fs-6 font-monospace m-0 p-0"><%= object.user.email %></p>
+    </div>
+      <a href="#" class="btn btn-outline-info float-end">Follow</a>
+      <p class="text-success m-0 p-0"><%= object.created_at.to_formatted_s(:long)%></p>
+  </div>
+
+  <div class="card-body">
+  <h5 class="text-bold"> <%= object.title %></h5>
+  <p><%= object.description %></p>
+
+  </div>
+
+  <div class="card-footer">
+    <div class="d-flex justify-content-evenly">
+      <%if check_like %>
+        <%= link_to "Unlike", "JavaScript:void(0);", class:"btn text-danger like_button", url: post_unlike_path(object.id)%>
+      <%else %>
+        <%= link_to "Like", "JavaScript:void(0);", class:"btn text-info like_button", url: post_like_path(object.id) %>
+      <%end%>
+      <p id="like_count"><%= like_count%></p>
+      <a class="btn text-warning" data-bs-toggle="collapse" href="#multiCollapseExample_<%= object.id%>" role="button" aria-expanded="false" aria-controls="multiCollapseExample_<%= object.id%>"> Comment </a>
+    </div>
+  </div>
+</div>
+
+

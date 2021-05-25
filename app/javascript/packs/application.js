@@ -12,7 +12,23 @@ import "channels"
  import "bootstrap"
  // import the application.scss we created for the bootstrap CSS (if you are not using assets stylesheet)
  import "../../assets/stylesheets/application"
+import { get } from "jquery"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+$( document ).ready(function() {
+    $(".like_button").click(function () {
+        let url = $(this).attr("url");
+        $.ajax({
+            url: url,
+            type: "get",
+            success: function (response) {
+                console.log(response, ";asdflkj;lakjdf;lakjdfs")
+                $("#like_count").text(response)
+                location.reload()
+            }
+        });
+      });
+});

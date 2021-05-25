@@ -1,12 +1,20 @@
-<div class="container">
-  <div class="card">
-    <div class="card-header">
+<div class="container justify-content-center" style="width: 30rem;">
+  <div class="card shadow mt-5" style="background-color:#e1f5fe;">
+    <div class="card-header bg-white shadow">
+      <h4 class="text-center"> <%= title_name %> Tweet</h4>
     </div>
-
+    
     <div class="card-body">
-    </div>
-
-    <div class="card-footer">
+    <%= render 'shared/errors', object: object %>
+      <%= form_with model: object, url: post_index_path, local:true do |form|%>
+        <%= form.label :title %>
+        <%= form.text_field :title, class:"form-control shadow mb-3", placeholder:"please enter email" %>
+        
+        <%= form.label :description %>
+        <%= form.text_area :description, class:"form-control shadow mb-3", placeholder:"enter password" %>
+        
+        <%= form.submit "Tweet", class:"shadow" %>
+      <%end%>	
     </div>
   </div>
 </div>

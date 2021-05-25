@@ -1,0 +1,28 @@
+<h1 class="text-center mt-4">Your Like's Post</h1>
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-6">
+    <% @like_post.each do |tweet| %>
+      <%= render partial: "shared/tweet",  locals: {object: tweet.post, check_like: like?(tweet.post.id), like_count: like_count(tweet.post.id)} %> 
+          <div class="collapse multi-collapse mt-3" id="multiCollapseExample_<%= tweet.post.id%>">
+            <div class="card card-body">
+              <%= render "shared/errors", object: @comment %>
+              <%= form_with model: @comment, url: user_comment_path(tweet.post.id) do |form|%>
+                <%= form.text_field :description, class:"form-control", placeholder:"comment" %>
+                <%= form.submit "comment", class:"mt-3"%>
+              <% end %>
+              <br>
+              <% tweet.post.comments.each do |comment| %>
+                <p class="text-info m-0 p-0"><%= comment.user.email %></p>
+                <p class="text-bold text-success m-0 p-0"> -> <%= comment.description %></p>
+              <%end%>
+            </div>
+        </div>
+    <% end %>
+    </div>
+
+    <div class="col-lg-6">
+    </div>
+  </div>
+</div>

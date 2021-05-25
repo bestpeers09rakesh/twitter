@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <h2 class="text-center mt-5"> You Followed</h2>
+      <% Current.user.given_follows.each do |follow|%>
+      <p> -> <%=follow.followed.email %></p>
+      <%end%>
+    </div>
+    <div class="col-lg-6">
+      <h2 class="text-center mt-5">Your Follower</h2>
+      <% Current.user.received_follows.each do |follow|%>
+      <p> -> <%=follow.follower.email %></p>
+      <%end%>
+    </div>
+  </div>
+</div>
