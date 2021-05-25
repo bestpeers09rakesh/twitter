@@ -25,6 +25,10 @@
       <ul class="navbar-nav ms-auto">
         <%if Current.user %>
           <li class="nav-item">
+            <%= link_to Current.user.email, profile_show_path, class:"nav-link btn text-white ms-3" %>
+          </li>
+
+          <li class="nav-item">
             <%= link_to "Logout", logout_session_index_path, method: :delete, class:"nav-link btn btn-outline-danger text-white ms-3" %>
           </li>
         <%else%>

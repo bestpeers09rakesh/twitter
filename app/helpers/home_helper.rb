@@ -1,7 +1,7 @@
 module HomeHelper
   def following?(followed_user)
     if Current.user
-      if Follow.find_by(follower_id:Current.user.id, followed_user_id:followed_user)
+      if Follow.find_by(follower_id:Current.user.id, followed_id:followed_user)
         true
       else
         false

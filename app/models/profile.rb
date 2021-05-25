@@ -1,5 +1,4 @@
 class Profile < ApplicationRecord
+  mount_uploader :image, ImageUploader
   belongs_to :user
-  validates :name, :last_name, :mobile, :dob, presence :true
-
 end

@@ -11,11 +11,15 @@ Rails.application.routes.draw do
   get 'home/unlike/post/:id', to: "home#unlike", as: :post_unlike
   get 'home/like-post/', to: "home#like_post", as: :like_post
 
-  get 'home/follow/user/:id', to: "home#follow", as: :follow
-  get 'home/unfollow/user/:id', to: "home#unfollow", as: :unfollow
+  get 'home/follow/post/user/:id', to: "home#follow", as: :follow
+  get 'home/unfollow/post/user/:id', to: "home#unfollow", as: :unfollow
+
+  get 'profile/', to: "profile#show", as: :profile_show
+  get 'profile/edit', to: "profile#edit", as: :profile_edit
+  put 'profile/update', to: "profile#update", as: :profile_update
 
   resources :user, only: [:new, :create]
-  resources :profile, only: [:new, :create, :edit, :update]
+
   resources :session, only: [:new] do
     post 'login', to: "session#login", as: :login, on: :collection
     delete 'logout', to: "session#logout", as: :logout, on: :collection

@@ -3,7 +3,11 @@
     <div class="d-flex">
       <p class="fs-6 font-monospace m-0 p-0"><%= object.user.email %></p>
     </div>
-      <a href="#" class="btn btn-outline-info float-end">Follow</a>
+      <% if follow %>
+        <%= link_to "unFollow", unfollow_path(object.user.id), class:"btn btn-outline-danger float-end" %>
+      <%else%>
+        <%= link_to "Follow", follow_path(object.user.id), class:"btn btn-outline-info float-end" %>
+      <%end%>
       <p class="text-success m-0 p-0"><%= object.created_at.to_formatted_s(:long)%></p>
   </div>
 

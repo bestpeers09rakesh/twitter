@@ -1,0 +1,19 @@
+<h1 class="text-center">Your Profile</h1>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-4">
+    <% if @profile.image.present?%>
+      <img src="<%= @profile.image%>" width=75% class="img-thumbnail shadow">
+    <%else%>
+      <p>Please Upload Profile Picture</p>
+    <%end%>
+    </div>
+
+    <div class="col-lg-8">
+      <h6 class="fs-4 text">First Name : <span class="fs-6 text"><span class="text-info"><%= @profile.name%> <%= @profile.last_name %></span></h6>
+      <h6 class="fs-4 text">Date Of Birth : <span class="fs-6 text"><span class="text-info"><%= @profile.dob.to_formatted_s(:long_ordinal)%></span></h6>
+      <h6 class="fs-4 text">Mobile No. : <span class="fs-6 text"><span class="text-info"><%= @profile.mobile %></span></h6>
+      <%= link_to "Edit", profile_edit_path, class:"btn btn-outline-dark text-success" %>
+    </div>
+  </div>
+</div>

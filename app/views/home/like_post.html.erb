@@ -4,10 +4,10 @@
 
     <div class="col-lg-6">
     <% @like_post.each do |tweet| %>
-      <%= render partial: "shared/tweet",  locals: {object: tweet.post, check_like: like?(tweet.post.id), like_count: like_count(tweet.post.id)} %> 
-          <div class="collapse multi-collapse mt-3" id="multiCollapseExample_<%= tweet.post.id%>">
-            <div class="card card-body">
-              <%= render "shared/errors", object: @comment %>
+      <%= render partial: "shared/tweet",  locals: {object: tweet.post, check_like: like?(tweet.post.id), follow: following?(tweet.post.user.id), like_count: like_count(tweet.post.id)} %> 
+        <div class="collapse multi-collapse mt-3" id="multiCollapseExample_<%= tweet.post.id%>">
+          <div class="card card-body">
+            <%= render "shared/errors", object: @comment %>
               <%= form_with model: @comment, url: user_comment_path(tweet.post.id) do |form|%>
                 <%= form.text_field :description, class:"form-control", placeholder:"comment" %>
                 <%= form.submit "comment", class:"mt-3"%>

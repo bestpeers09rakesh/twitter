@@ -25,7 +25,6 @@ $( document ).ready(function() {
             url: url,
             type: "get",
             success: function (response) {
-                console.log(response, ";asdflkj;lakjdf;lakjdfs")
                 $("#like_count").text(response)
                 location.reload()
             }

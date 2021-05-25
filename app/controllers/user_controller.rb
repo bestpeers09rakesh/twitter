@@ -8,7 +8,8 @@ class UserController < ApplicationController
   def create
     @user = User.new(params_user)
     if @user.save
-      redirect_to root_path
+      session[:user_id] = @user.id
+      redirect_to profile_edit_path
     else
       render :new
     end

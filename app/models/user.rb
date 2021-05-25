@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  before_create :create_profile
+  after_create :create_profile
 
   validates :email, uniqueness: true, presence: true
   validates :password, confirmation: true, length: { minimum: 6, message: 'Please enter equal and greater then 6' }
@@ -27,7 +27,7 @@ class User < ApplicationRecord
   private
 
     def create_profile
-      Profile.create(user_id: self)
+      Profile.create(user: self)
     end
 
 end
