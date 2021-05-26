@@ -6,15 +6,19 @@
     
     <div class="card-body">
       <%= render "shared/flash" %>
-      <%= form_with model: @user, url: login_session_index_path, local:true do |form|%>
+      <%= form_with model: @user, url:login_session_index_path, local: true do |form|%>
         <%= form.label :email %>
         <%= form.text_field :email, class:"form-control shadow mb-3", placeholder:"please enter email" %>
         
         <%= form.label :password %>
         <%= form.password_field :password, class:"form-control shadow mb-3", placeholder:"enter password" %>
-        
+        <a href="#" class="btn text-warning float-end m-0 p-0">Forget Password</a>
+        <br>
         <%= form.submit "Get's Start", class:"shadow" %>
       <%end%>
+      <div class="float-end">
+        <p class="m-1 p-0">If Already SignUp? <%= link_to "SignUp", new_user_path, class:"btn text-info m-0 p-0"%></p>
+      </div>
     </div>
   </div>
 </div>

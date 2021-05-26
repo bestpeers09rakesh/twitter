@@ -21,8 +21,9 @@ Rails.application.routes.draw do
   resources :user, only: [:new, :create]
 
   resources :session, only: [:new] do
-    post 'login', to: "session#login", as: :login, on: :collection
+    post '', to: "session#login", as: :login, on: :collection
     delete 'logout', to: "session#logout", as: :logout, on: :collection
   end
+
   resources :post, only: [:new, :create, :edit, :update, :destory]
 end

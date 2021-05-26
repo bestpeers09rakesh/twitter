@@ -1,9 +1,10 @@
 class HomeController < ApplicationController
   helper HomeHelper
-  before_action :require_login, only: [:user_tweet, :create_comment, :like, :unlike]
+  before_action :require_login, only: [:user_tweet, :create_comment, :like_post, :unlike, :like, :follow, :unfollow, :user_follow]
 
   def index
     @comment = Comment.new
+    # byebug
     @all_tweet = Post.all.order('id desc')
   end
 
@@ -43,7 +44,6 @@ class HomeController < ApplicationController
   end
 
   def unlike
-    puts ">>>>>>>>>>>>>>#{params[:id]}"
     Like.find_by(user_id: Current.user.id, post_id: params[:id]).destroy
     count = Like.where(post_id: params[:id]).count
     respond_to do |format|

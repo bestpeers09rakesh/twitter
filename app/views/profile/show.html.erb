@@ -13,7 +13,7 @@
       <h6 class="fs-4 text">First Name : <span class="fs-6 text"><span class="text-info"><%= @profile.name%> <%= @profile.last_name %></span></h6>
       <h6 class="fs-4 text">Date Of Birth : <span class="fs-6 text"><span class="text-info"><%= @profile.dob.to_formatted_s(:long_ordinal)%></span></h6>
       <h6 class="fs-4 text">Mobile No. : <span class="fs-6 text"><span class="text-info"><%= @profile.mobile %></span></h6>
-      <%= link_to "Edit", profile_edit_path, class:"btn btn-outline-dark text-success" %>
+      <%= link_to "Edit", profile_edit_path, class:"btn btn-outline-dark text-success shadow" %>
     </div>
   </div>
 </div>
