@@ -24,10 +24,15 @@
       </ul>
       <ul class="navbar-nav ms-auto">
         <%if Current.user %>
-          <li class="nav-item">
-            <%= link_to Current.user.email, profile_show_path, class:"nav-link btn text-white ms-3" %>
-          </li>
-
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="<%= profile_show_path%>" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= Current.user.email %>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to "Profile", profile_show_path, class:"dropdown-item"%></li>
+            <li><%= link_to "Change Password", password_edit_user_index_path, class:"dropdown-item"%></li>
+          </ul>
+        </li>
           <li class="nav-item">
             <%= link_to "Logout", logout_session_index_path, method: :delete, class:"nav-link btn btn-outline-danger text-white ms-3" %>
           </li>

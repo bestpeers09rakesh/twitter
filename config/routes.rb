@@ -18,7 +18,13 @@ Rails.application.routes.draw do
   get 'profile/edit', to: "profile#edit", as: :profile_edit
   put 'profile/update', to: "profile#update", as: :profile_update
 
-  resources :user, only: [:new, :create]
+  resources :user, only: [:new, :create] do
+    get 'password/edit', to: "user#edit", as: :password_edit, on: :collection
+    patch 'password/update', to: "user#update", as: :password_update, on: :collection
+    get 'password/reset', to: "user#rest_password", as: :reset_password, on: :collection
+    post 'password/reset', to: "user#rest_password", as: :post_password, on: :collection
+
+  end
 
   resources :session, only: [:new] do
     post '', to: "session#login", as: :login, on: :collection

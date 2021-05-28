@@ -12,7 +12,7 @@
         
         <%= form.label :password %>
         <%= form.password_field :password, class:"form-control shadow mb-3", placeholder:"enter password" %>
-        <a href="#" class="btn text-warning float-end m-0 p-0">Forget Password</a>
+        <%= link_to "Forget Password", reset_password_user_index_path, class:"btn text-warning float-end m-0 p-0" %>
         <br>
         <%= form.submit "Get's Start", class:"shadow" %>
       <%end%>
